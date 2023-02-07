@@ -15,17 +15,20 @@ router.get('/query/:asset_id', async (req, res) => {
   res.send(data);
 });
 
-router.post('/query/createasset', async (req, res) => {
+router.post('/query/update', async (req, res) => {
   let der = new DER({
-    id: req.body.id,
-    der_name: req.body.der_name,
-    V_pcc: req.body.V_pcc,
-    f_pcc: req.body.f_pcc,
-    V_DER: req.body.V_DER,
-    P_DER: req.body.P_DER,
-    Q_DER: req.body.Q_DER,
-    I_DER: req.body.I_DER,
+    der_id: req.body.idDER,
+    der_name: req.body.nameDER,
+    V_pcc: req.body.pccV,
+    f_pcc: req.body.pccF,
+    V_DER: req.body.derV,
+    P_DER: req.body.derP,
+    Q_DER: req.body.derQ,
+    I_DER: req.body.derI,
   });
+
+  console.log(req.body, 'request-----------------------');
+
   try {
     der = await der.save();
     console.log(der);

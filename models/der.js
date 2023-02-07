@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const DER_schema = new mongoose.Schema({
-    id: {
+    der_id: {
         type: String,
         required: true
     },
